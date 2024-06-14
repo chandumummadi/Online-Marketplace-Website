@@ -12,59 +12,95 @@ This project is an online marketplace website built using Django, Django REST fr
 - RESTful APIs for all operations
 
 ## Project Structure
-
 ```
 marketplace/
-    manage.py
-    marketplace/
-        __init__.py
-        settings.py  
-        urls.py
-        wsgi.py
-    users/
-        __init__.py
-        admin.py
-        apps.py
-        forms.py
-        models.py
-        urls.py
-        views.py
-    buyers/
-        __init__.py
-        admin.py
-        apps.py
-        models.py
-        urls.py
-        views.py
-    sellers/
-        __init__.py
-        admin.py
-        apps.py
-        models.py
-        urls.py
-        views.py
-    products/
-        __init__.py
-        admin.py
-        apps.py
-        models.py
-        urls.py
-        views.py
-    orders/
-        __init__.py
-        admin.py
-        apps.py
-        models.py
-        urls.py
-        views.py
-    admin_user/
-        __init__.py
-        admin.py
-        apps.py
-        models.py
-        urls.py
-        views.py
+├── admin_user/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── buyers/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── cart/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── marketplace/
+│   ├── __pycache__
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── orders/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── products/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── sellers/
+│   ├── __pycache__
+│   ├── migrations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+└── users/
+    ├── __pycache__
+    ├── migrations
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── forms.py
+    ├── models.py
+    ├── permissions.py
+    ├── tests.py
+    ├── urls.py
+    ├── utils.py
+    └── views.py
+manage.py
 ```
+
+You can include this in your README file to give an overview of the project's directory structure.
 
 ## Installation and Setup
 
@@ -84,8 +120,8 @@ cd marketplace
 ### Create and Activate Virtual Environment
 
 ```bash
-virtualenv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+virtualenv test
+source test/bin/activate  # On Windows use `test\Scripts\activate`
 ```
 
 ### Install Dependencies
@@ -141,11 +177,18 @@ python manage.py runserver
 
 - Obtain Token: `POST /api-token-auth/`
 
-### User Endpoints
+### Admin Endpoints
+- View Dashboard: GET /admin-user/dashboard/
+- Manage Users: GET /admin-user/users/
+- Manage Sellers: GET /admin-user/sellers/
+- Manage Buyers: GET /admin-user/buyers/
+- Manage Products: GET /admin-user/products/
+- Manage Orders: GET /admin-user/orders/
 
-- Register Buyer: `POST /users/register/buyer/`
-- Register Seller: `POST /users/register/seller/`
-- Login: `POST /users/login/`
+### User Endpoints
+- Register Buyer: POST /users/register/buyer/
+- Register Seller: POST /users/register/seller/
+- Login: POST /users/login/
 
 ### Buyer Endpoints
 
@@ -163,14 +206,33 @@ python manage.py runserver
 - View Order Detail: `GET /sellers/orders/<order_id>/`
 - View Products: `GET /sellers/products/`
 
-### Admin Endpoints
+### Product Endpoints
 
-- View Dashboard: `GET /admin-user/dashboard/`
-- Manage Users: `GET /admin-user/users/`
-- Manage Sellers: `GET /admin-user/sellers/`
-- Manage Buyers: `GET /admin-user/buyers/`
-- Manage Products: `GET /admin-user/products/`
-- Manage Orders: `GET /admin-user/orders/`
+#### Buyer Endpoints
+- List Products: GET `/products/`
+- Product Detail: GET `/products/<int:pk>/`
+
+#### Seller Endpoints
+- Create Product: POST `/products/create/`
+- Update Product: PUT `/products/update/<int:pk>/`
+- Read All Products: GET `/products/read/`
+- Read Product Detail: GET `/products/read/<int:pk>/`
+- Delete Product: DELETE `/products/delete/<int:pk>/`
+
+### Order Endpoints
+
+#### Seller Endpoints
+- List Seller Orders: GET `/orders/seller/orders/`
+- Seller Order Detail: GET `/orders/seller/orders/<int:pk>/`
+
+#### Buyer Endpoints
+- List Buyer Orders: GET `/orders/buyer/orders/`
+- Buyer Order Detail: GET `/orders/buyer/orders/<int:pk>/`
+
+### Cart Endpoints
+
+- Add to Cart: POST `/cart/add/<int:product_id>/`
+- View Cart: GET `/cart/`
 
 ## License
 
