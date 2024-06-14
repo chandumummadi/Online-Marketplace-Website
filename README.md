@@ -64,27 +64,6 @@ marketplace/
         models.py
         urls.py
         views.py
-    templates/
-        users/
-            register.html
-            login.html
-            profile.html
-        buyers/
-            dashboard.html
-            order_history.html
-            product_list.html
-            product_detail.html
-        sellers/
-            dashboard.html
-            product_form.html
-            sales_report.html
-        products/
-            product_detail.html
-            product_list.html
-        orders/
-            cart.html
-            checkout.html
-            order_confirmation.html
 ```
 
 ## Installation and Setup
@@ -98,7 +77,7 @@ marketplace/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/marketplace.git
+git clone https://github.com/chandumummadi/Online-Marketplace-Website.git
 cd marketplace
 ```
 
