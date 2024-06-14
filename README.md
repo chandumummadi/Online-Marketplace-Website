@@ -100,8 +100,6 @@ marketplace/
 manage.py
 ```
 
-You can include this in your README file to give an overview of the project's directory structure.
-
 ## Installation and Setup
 
 ### Prerequisites
@@ -234,9 +232,5 @@ python manage.py runserver
 - Add to Cart: POST `/cart/add/<int:product_id>/`
 - View Cart: GET `/cart/`
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-```
 
 This `README.md` file provides an overview of the project, instructions for setting up the development environment, and details on how to replicate the project. It also includes information about the available API endpoints for different user roles. Adjust the URLs, repository link, and any other project-specific details as necessary.
