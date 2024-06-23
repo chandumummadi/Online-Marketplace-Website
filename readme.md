@@ -112,7 +112,6 @@ manage.py
 
 ```bash
 git clone https://github.com/chandumummadi/Online-Marketplace-Website.git
-cd marketplace
 ```
 
 ### Create and Activate Virtual Environment
@@ -127,7 +126,10 @@ source test/bin/activate  # On Windows use `test\Scripts\activate`
 ```bash
 pip install -r requirements.txt
 ```
-
+### Open Project
+```bash
+cd marketplace
+```
 ### Configure PostgreSQL Database
 
 Create a PostgreSQL database and update the `DATABASES` setting in `marketplace/settings.py` with your database credentials.
