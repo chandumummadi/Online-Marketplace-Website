@@ -1,5 +1,5 @@
 
-# Online Marketplace Website
+# Online Marketplace Website Backend
 
 This project is an online marketplace website built using Django, Django REST framework, and PostgreSQL. It allows users to register as buyers or sellers, manage their profiles, and perform specific activities related to buying and selling products. Admin users have full access to manage all aspects of the platform.
 
